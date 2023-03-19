@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <header>
+                <a href="index.html" class="logo homelink">Library</a>
+            </header>
+            <form action="" method="post" id="add-book-form">
+                <h2 class="form-title">Add a book</h2>
+                <div class="form-group">
+                    <input type="text" name="book-title" id="book-title" class="form-input" autocomplete="off" placeholder="Title" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="book-title" id="book-author" class="form-input" autocomplete="off" placeholder="Author" required>
+                </div>
+                <div class="form-group">
+                    <input type="number" name="book-title" id="book-pages" class="form-input" autocomplete="off" placeholder="Pages" required title="Please enter the number of pages">
+                </div>
+                <div class="form-group radio-buttons">
+                    <p>Did you read the book?</p>
+                    <input type="radio" name="status" id="read" value="yes" checked>
+                    <label for="status">Yes</label>
+                    <input type="radio" name="status" id="unread" value="No">
+                    <label for="status">No</label>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="add-button" value="Add book">
+                </div>
+            </form>
+        </aside>
+        <main>
+            <h1 class="page-title">My books</h1>
+            <div class="container-books">
+                
+            </div>
+        </main>
+        <footer>
+            <small>Created by Štěpán Š</small>
+        </footer>
+
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
