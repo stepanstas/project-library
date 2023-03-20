@@ -114,11 +114,21 @@ main {
     background-color: rgba(0, 0, 0, 0.8);
     display: none;
     place-items: center;
+    animation: modalShow 0.2s ease-in;
     transition: all 0.2s ease-in-out;
 }
 
 .modal-overlay.active {
     display: grid;
+}
+
+@keyframes modalShow {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
 }
 
 .close-btn {
@@ -202,6 +212,24 @@ input[type="radio"] {
     opacity: 0.8;
 }
 
+.error-msg {
+    display: none;
+    justify-content: center;
+    color: var(--secondary-text-color);
+    background-color: #ff0000;
+    font-weight: bold;
+    text-align: center;
+    padding-block: 0.75rem;
+    padding-inline: 0.75rem;
+    border-block: 3px solid #ff0000;
+    border-inline: 3px solid #ff0000;
+    border-radius: 5px;
+}
+
+.error-msg.active {
+    display: flex;
+}
+
 .page-title {
     font-size: 1.5rem;
 }
@@ -262,6 +290,8 @@ input[type="radio"] {
 .edit-button:hover {
     color: var(--secondary-text-color);
     background-color: var(--tertiary-bg-color);
+    border-block: 3px solid var(--tertiary-bg-color);
+    border-inline: 3px solid var(--tertiary-bg-color);
 }
 
 .remove-button:hover {
