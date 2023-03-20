@@ -4,4 +4,4 @@ Created a library using html, css and vanilla javascript that allows users to ad
 
 https://www.theodinproject.com/lessons/node-path-javascript-library
 
-The finished project can be viewed here: 
+The finished project can be viewed here: https://stepanstas.github.io/project-library/
