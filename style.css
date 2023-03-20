@@ -31,12 +31,12 @@ body {
 
 .container {
     display: grid;
-    grid-template-columns: 2fr 4fr;
+    grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
     grid-template-areas: 
-    "aside main"
-    "aside main"
-    "aside footer";
+    "header"
+    "main"
+    "footer";
     min-block-size: 100vb;
     gap: 3px;
 }
@@ -47,20 +47,44 @@ a {
 }
 
 header {
-    font-size: 3rem;
-    font-weight: bold;
-    inline-size: 100%;
-}
-
-aside {
-    grid-area: aside;
-    background-color: var(--primary-bg-color);
+    grid-area: header;
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
     padding-block: 1rem;
     padding-inline: 2rem;
+    font-weight: bold;
     inline-size: 100%;
+    background-color: var(--primary-bg-color);
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.add-book-btn {
+    padding-block: 0.75rem;
+    padding-inline: 0.75rem;
+    font-size: inherit;
+    font-weight: bold;
+    font-family: inherit;
+    color: var(--secondary-text-color);
+    background-color: var(--tertiary-bg-color);
+    border-block: 3px solid var(--tertiary-bg-color);
+    border-inline: 3px solid var(--tertiary-bg-color);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.add-book-btn:hover {
+    opacity: 0.8;
+}
+
+.add-book-btn > span {
+    margin-inline-end: 0.5rem;
 }
 
 footer {
@@ -71,11 +95,51 @@ footer {
     background-color: var(--primary-bg-color);
 }
 
+main {
+    grid-area: main;
+    background-color: var(--primary-bg-color);
+    padding-block: 2rem;
+    padding-inline: 2rem;
+    display: grid;
+    gap: 2rem;
+    align-content: start;
+}
+
+/* Modal form */
+
+.modal-overlay {
+    position: fixed;
+    inset-block: 0;
+    inset-inline: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    place-items: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.modal-overlay.active {
+    display: grid;
+}
+
+.close-btn {
+    position: absolute;
+    inset-block-start: 0.5rem;
+    inset-inline-end: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
 form {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    inline-size: 100%;
+    inline-size: 90%;
+    max-inline-size: 500px;
+    background-color: var(--secondary-bg-color);
+    border-radius: 5px;
+    padding-block: 2rem;
+    padding-inline: 2rem;
 }
 
 ::placeholder {
@@ -87,9 +151,10 @@ form {
     inline-size: 100%;
     padding-block: 0.75rem;
     padding-inline: 0.75rem;
-    border-block: 3px solid var(--secondary-bg-color);
-    border-inline: 3px solid var(--secondary-bg-color);
+    border-block: 3px solid var(--primary-bg-color);
+    border-inline: 3px solid var(--primary-bg-color);
     border-radius: 5px;
+    background-color: var(--primary-bg-color);
     font-size: inherit;
     font-family: inherit;
     color: inherit;
@@ -137,23 +202,13 @@ input[type="radio"] {
     opacity: 0.8;
 }
 
-main {
-    grid-area: main;
-    background-color: var(--primary-bg-color);
-    padding-block: 2rem;
-    padding-inline: 2rem;
-    display: grid;
-    gap: 2rem;
-    align-content: start;
-}
-
 .page-title {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .container-books {
     display: grid;
-    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
 }
 
@@ -165,6 +220,8 @@ main {
     padding-block: 1rem;
     padding-inline: 1rem;
     border-radius: 5px;
+    overflow-wrap: break-word;
+    word-break: break-all;
 }
 
 .title,
@@ -175,9 +232,18 @@ main {
 }
 
 .title {
+    text-transform: uppercase;
     font-size: 1.25rem;
 }
 
+.read-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.edit-button,
 .remove-button {
     padding-block: 0.5rem;
     padding-inline: 0.5rem;
@@ -191,6 +257,11 @@ main {
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+}
+
+.edit-button:hover {
+    color: var(--secondary-text-color);
+    background-color: var(--tertiary-bg-color);
 }
 
 .remove-button:hover {
