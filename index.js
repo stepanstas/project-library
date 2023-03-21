@@ -37,19 +37,19 @@ function addBook(book) {
     // Create title element and add to book card
     const bookTitle = document.createElement("span");
     bookTitle.classList.add("title");
-    bookTitle.textContent = book.title;
+    bookTitle.textContent = `${book.title}`;
     bookCard.appendChild(bookTitle);
 
     // Create author element and add to book card
     const bookAuthor = document.createElement("span");
     bookAuthor.classList.add("author");
-    bookAuthor.textContent = book.author;
+    bookAuthor.textContent = `${book.author}`;
     bookCard.appendChild(bookAuthor);
 
     // Create pages element and add to book card 
     const bookPages = document.createElement("span");
     bookPages.classList.add("pages");
-    bookPages.textContent = book.pages;
+    bookPages.textContent = `Pages: ${book.pages}`;
     bookCard.appendChild(bookPages);
 
     // Create read status element and add to book card 
@@ -62,17 +62,21 @@ function addBook(book) {
         readStatus.textContent = book.read ? "Read" : "Unread";
     });
 
+    const containerButtons = document.createElement("div");
+    containerButtons.classList.add("container-buttons");
+    bookCard.appendChild(containerButtons);
+
     // Create edit icon and add it inside of the readStatus
     const editButton = document.createElement("button");
     editButton.classList.add("edit-button");
     editButton.textContent = "Edit";
-    bookCard.appendChild(editButton);
+    containerButtons.appendChild(editButton);
 
     // Create remove button and add to book card
     const removeButton = document.createElement("button");
     removeButton.classList.add("remove-button");
     removeButton.textContent = "Remove";
-    bookCard.appendChild(removeButton);
+    containerButtons.appendChild(removeButton);
 
     // Add book card to the container 
     container.appendChild(bookCard);

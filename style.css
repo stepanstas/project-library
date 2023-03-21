@@ -238,6 +238,8 @@ input[type="radio"] {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
+    overflow-wrap: break-word;
+    word-break: keep-all;
 }
 
 .book-card {
@@ -248,20 +250,15 @@ input[type="radio"] {
     padding-block: 1rem;
     padding-inline: 1rem;
     border-radius: 5px;
-    overflow-wrap: break-word;
-    word-break: break-all;
 }
 
 .title,
 .author,
 .pages,
 .read-status {
+    display: flex;
+    flex-flow: row wrap;
     font-weight: bold;
-}
-
-.title {
-    text-transform: uppercase;
-    font-size: 1.25rem;
 }
 
 .read-status {
@@ -269,6 +266,13 @@ input[type="radio"] {
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+}
+
+.container-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-block-start: auto;
 }
 
 .edit-button,
