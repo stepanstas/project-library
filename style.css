@@ -189,7 +189,12 @@ input[type=number]::-webkit-inner-spin-button {
 
 input[type="radio"] {
     accent-color: var(--tertiary-bg-color);
+    cursor: pointer;
 }
+
+input[type="radio"] + label {
+    cursor: pointer;
+  }
 
 .add-button {
     -webkit-appearance: none;
