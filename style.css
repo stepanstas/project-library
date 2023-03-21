@@ -192,6 +192,9 @@ input[type="radio"] {
 }
 
 .add-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     inline-size: 100%;
     margin-block-start: 1rem;
     padding-block: 0.75rem;
@@ -261,11 +264,8 @@ input[type="radio"] {
     font-weight: bold;
 }
 
-.read-status {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
+.title {
+    font-size: 1.25rem;
 }
 
 .container-buttons {
@@ -275,13 +275,17 @@ input[type="radio"] {
     margin-block-start: auto;
 }
 
-.edit-button,
+.read-status,
 .remove-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding-block: 0.5rem;
     padding-inline: 0.5rem;
     font-weight: bold;
     font-family: inherit;
     font-size: inherit;
+    text-align: center;
     color: inherit;
     background-color: var(--primary-bg-color);
     border-block: 3px solid var(--primary-bg-color);
@@ -291,7 +295,7 @@ input[type="radio"] {
     transition: all 0.2s ease-in-out;
 }
 
-.edit-button:hover {
+.read-status:hover {
     color: var(--secondary-text-color);
     background-color: var(--tertiary-bg-color);
     border-block: 3px solid var(--tertiary-bg-color);

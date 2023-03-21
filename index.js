@@ -2,7 +2,6 @@ const addBookButton = document.querySelector(".add-book-btn");
 const modal = document.querySelector(".modal-overlay");
 const closeBtn = document.querySelector(".close-btn");
 const form = document.querySelector("#add-book-form");
-const errorMsg = document.querySelector(".error-msg");
 const container = document.querySelector(".container-books");
 
 addBookButton.addEventListener("click", () => {
@@ -66,12 +65,6 @@ function addBook(book) {
     containerButtons.classList.add("container-buttons");
     bookCard.appendChild(containerButtons);
 
-    // Create edit icon and add it inside of the readStatus
-    const editButton = document.createElement("button");
-    editButton.classList.add("edit-button");
-    editButton.textContent = "Edit";
-    containerButtons.appendChild(editButton);
-
     // Create remove button and add to book card
     const removeButton = document.createElement("button");
     removeButton.classList.add("remove-button");
@@ -85,7 +78,7 @@ function addBook(book) {
 // Add event listener to the remove button to remove book from from library
 container.addEventListener("click", (event) => {
     if (event.target.classList.contains("remove-button")) {
-        container.removeChild(event.target.parentElement);
+        container.removeChild(event.target.parentElement.parentElement);
     }
 });
 
