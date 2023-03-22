@@ -26,6 +26,18 @@ class Book {
     }
 }
 
+// Create a function that counts and updates the book number in the library
+function updateBookCount() {
+    const bookNumberSpan = document.querySelector(".book-number");
+    const bookCards = document.querySelectorAll(".book-card");
+    const bookCount = bookCards.length;
+    if(bookCards.length === 1) {
+        bookNumberSpan.textContent = `${bookCount.toString()} book`;
+    } else {
+        bookNumberSpan.textContent = `${bookCount.toString()} books`;
+    }
+}
+
 // Create a function to add book to the library
 function addBook(book) {
 
@@ -73,6 +85,7 @@ function addBook(book) {
 
     // Add book card to the container 
     container.appendChild(bookCard);
+    updateBookCount();
 }
 
 // Add event listener to the remove button to remove book from from library
@@ -80,6 +93,8 @@ container.addEventListener("click", (event) => {
     if (event.target.classList.contains("remove-button")) {
         container.removeChild(event.target.parentElement.parentElement);
     }
+    updateBookCount();
+
 });
 
 form.addEventListener("submit", (event) => {
@@ -92,8 +107,13 @@ form.addEventListener("submit", (event) => {
     // Create a new book object and add it to the library 
     const book = new Book(title, author, pages, read);
     addBook(book);
+
+    const message = document.querySelector(".message").getElementsByClassName.display = "none";
     
     // Reset form 
     form.reset();
     modal.classList.toggle("active");
 });
+
+updateBookCount();
+
